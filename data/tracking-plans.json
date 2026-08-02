@@ -1,0 +1,241 @@
+[
+  {
+    "id": "ecommerce-ga4",
+    "name": "E-commerce GA4 Standard Tracking Plan",
+    "description": "Standard GA4 tracking specification for e-commerce online stores.",
+    "business_type": "ecommerce",
+    "platform": "GA4",
+    "created_at": "2026-01-01T00:00:00.000Z",
+    "updated_at": "2026-01-01T00:00:00.000Z",
+    "events": [
+      {
+        "name": "page_view",
+        "description": "User loads a website page",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "page_location", "type": "string", "description": "Page URL", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "page_title", "type": "string", "description": "Page document title", "required": false }
+        ]
+      },
+      {
+        "name": "view_item",
+        "description": "User views a product details page",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "currency", "type": "string", "description": "Currency code", "required": true },
+          { "name": "value", "type": "number", "description": "Product monetary value", "required": true },
+          { "name": "items", "type": "array", "description": "Viewed items array", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "add_to_cart",
+        "description": "User adds an item to cart",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "currency", "type": "string", "description": "Currency code", "required": true },
+          { "name": "value", "type": "number", "description": "Cart item value", "required": true },
+          { "name": "items", "type": "array", "description": "Added items array", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "remove_from_cart",
+        "description": "User removes an item from cart",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "items", "type": "array", "description": "Removed items array", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "view_cart",
+        "description": "User views their shopping cart",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "currency", "type": "string", "description": "Currency code", "required": true },
+          { "name": "value", "type": "number", "description": "Cart total value", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "begin_checkout",
+        "description": "User begins checkout step",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "currency", "type": "string", "description": "Currency code", "required": true },
+          { "name": "value", "type": "number", "description": "Checkout monetary value", "required": true },
+          { "name": "items", "type": "array", "description": "Items in checkout", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "add_payment_info",
+        "description": "User submits payment information",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "currency", "type": "string", "description": "Currency code", "required": true },
+          { "name": "value", "type": "number", "description": "Total payment value", "required": true },
+          { "name": "payment_type", "type": "string", "description": "Payment method (e.g. Credit Card, PayPal)", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "purchase",
+        "description": "User completes a purchase",
+        "category": "ecommerce",
+        "required_parameters": [
+          { "name": "transaction_id", "type": "string", "description": "Unique transaction/order ID", "required": true },
+          { "name": "value", "type": "number", "description": "Total transaction value", "required": true },
+          { "name": "currency", "type": "string", "description": "Transaction currency", "required": true },
+          { "name": "items", "type": "array", "description": "Purchased products", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "tax", "type": "number", "description": "Tax amount", "required": false },
+          { "name": "shipping", "type": "number", "description": "Shipping cost", "required": false },
+          { "name": "coupon", "type": "string", "description": "Discount coupon used", "required": false }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "leadgen-ga4",
+    "name": "Lead Generation & Service Business GA4 Tracking Plan",
+    "description": "Funnel tracking specification for service businesses, HVAC, roofing, consulting, and lead generation.",
+    "business_type": "lead_generation",
+    "platform": "GA4",
+    "created_at": "2026-01-01T00:00:00.000Z",
+    "updated_at": "2026-01-01T00:00:00.000Z",
+    "events": [
+      {
+        "name": "page_view",
+        "description": "User loads a website page",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "page_location", "type": "string", "description": "URL of the page", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "view_service",
+        "description": "User views a specific service page",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "service_name", "type": "string", "description": "Name of service viewed", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "service_category", "type": "string", "description": "Category of service", "required": false }
+        ]
+      },
+      {
+        "name": "form_start",
+        "description": "User interacts with a lead form",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "form_id", "type": "string", "description": "Form ID", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "form_name", "type": "string", "description": "Form display name", "required": false }
+        ]
+      },
+      {
+        "name": "form_submit",
+        "description": "User submits a lead or contact form",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "form_id", "type": "string", "description": "Form identifier", "required": true },
+          { "name": "form_name", "type": "string", "description": "Form name", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "service_name", "type": "string", "description": "Requested service name", "required": false }
+        ]
+      },
+      {
+        "name": "generate_lead",
+        "description": "A user submits a lead form",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "form_id", "type": "string", "description": "Lead form identifier", "required": true },
+          { "name": "form_name", "type": "string", "description": "Lead form name", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "service_name", "type": "string", "description": "Requested service", "required": false },
+          { "name": "value", "type": "number", "description": "Estimated lead value", "required": false },
+          { "name": "currency", "type": "string", "description": "Currency", "required": false },
+          { "name": "lead_id", "type": "string", "description": "Unique generated lead ID", "required": false }
+        ]
+      },
+      {
+        "name": "contact",
+        "description": "User initiates general contact",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "method", "type": "string", "description": "Contact method (phone, email, chat)", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "phone_click",
+        "description": "User clicks to call phone number",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "phone_number", "type": "string", "description": "Clicked phone number", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "email_click",
+        "description": "User clicks to send an email",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "email", "type": "string", "description": "Clicked email address", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "whatsapp_click",
+        "description": "User clicks WhatsApp link",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "phone_number", "type": "string", "description": "Target WhatsApp phone number", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "appointment_start",
+        "description": "User begins booking an appointment",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "service_name", "type": "string", "description": "Service name", "required": true }
+        ],
+        "optional_parameters": []
+      },
+      {
+        "name": "appointment_booked",
+        "description": "User successfully books an appointment",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "appointment_id", "type": "string", "description": "Unique appointment ID", "required": true },
+          { "name": "service_name", "type": "string", "description": "Booked service name", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "value", "type": "number", "description": "Appointment fee / estimated value", "required": false },
+          { "name": "currency", "type": "string", "description": "Currency", "required": false }
+        ]
+      },
+      {
+        "name": "quote_request",
+        "description": "User requests a price estimate or quote",
+        "category": "lead_generation",
+        "required_parameters": [
+          { "name": "service_name", "type": "string", "description": "Requested service name", "required": true }
+        ],
+        "optional_parameters": [
+          { "name": "value", "type": "number", "description": "Estimated quote value", "required": false }
+        ]
+      }
+    ]
+  }
+]

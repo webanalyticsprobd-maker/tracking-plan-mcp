@@ -1,0 +1,33 @@
+{
+  "name": "tracking-plan-mcp",
+  "version": "1.0.0",
+  "description": "Beginner-friendly Model Context Protocol (MCP) server for managing and validating Ecommerce & Lead-Generation tracking plans.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc -w",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tracking-plan",
+    "ecommerce",
+    "lead-generation",
+    "analytics"
+  ],
+  "author": "Antigravity Developer",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.5.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
